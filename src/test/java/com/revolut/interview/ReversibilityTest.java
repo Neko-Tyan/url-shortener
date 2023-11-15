@@ -5,14 +5,14 @@ import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReversibilityTest {
 
-    UrlSaverImpl urlSaver = new UrlSaverImpl(new HashMap<>());
+    UrlSaverImpl urlSaver = new UrlSaverImpl(new ConcurrentHashMap<>());
     
     UrlShortener urlShortener = new UrlShortenerImpl(urlSaver);
     UrlExpander urlExpander = new UrlExpanderImpl(urlSaver);

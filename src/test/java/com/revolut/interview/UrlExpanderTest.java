@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,7 +41,9 @@ class UrlExpanderTest {
     @BeforeAll
     @SneakyThrows
     static void setUp(){
-        urlExpander = new UrlExpanderImpl(new UrlSaverImpl(Map.of("dv56x", new URL("https://weather.com"))));    
+        var map = new ConcurrentHashMap<String, URL>();
+        map.put("dv56x", new URL("https://weather.com"));
+        urlExpander = new UrlExpanderImpl(new UrlSaverImpl(map));    
     }
     
     @ParameterizedTest

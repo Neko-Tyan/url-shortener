@@ -1,22 +1,21 @@
 package com.revolut.interview;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.net.MalformedURLException;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.apache.commons.lang3.StringUtils;
-
 class UrlShortenerTest {
     
-    UrlShortener urlShortener = new UrlShortenerImpl(new UrlSaverImpl(new HashMap<>()));
+    UrlShortener urlShortener = new UrlShortenerImpl(new UrlSaverImpl(new ConcurrentHashMap<>()));
 
     public static Stream<String> getValidInput() {
         return Stream.of("https://www.google.com/search?q=stackoverflow");

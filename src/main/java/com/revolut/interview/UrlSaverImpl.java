@@ -1,13 +1,13 @@
 package com.revolut.interview;
 
 import java.net.URL;
-import java.util.Map;
+import java.util.concurrent.ConcurrentMap;
 
 public class UrlSaverImpl implements UrlSaver {
     
-    private final Map<String, URL> map;
+    private final ConcurrentMap<String, URL> map;
 
-    public UrlSaverImpl(Map<String, URL> map) {
+    public UrlSaverImpl(ConcurrentMap<String, URL> map) {
         this.map = map;
     }
 
