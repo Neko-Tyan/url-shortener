@@ -1,20 +1,18 @@
 package com.revolut.interview;
 
+import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
 
 import java.net.URL;
 
+@AllArgsConstructor
 public class UrlExpanderImpl implements UrlExpander {
     
     private static final String HOST = "sh.rt";
     public static final int PATH_LENGTH = 6;
 
     private final UrlSaver urlSaver;
-
-    public UrlExpanderImpl(UrlSaver urlSaver) {
-        this.urlSaver = urlSaver;
-    }
 
     @Override
     @SneakyThrows

@@ -1,21 +1,19 @@
 package com.revolut.interview;
 
+import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.net.URL;
 
+@AllArgsConstructor
 public class UrlShortenerImpl implements UrlShortener {
     
     private static final String PROTOCOL = "https";
     private static final String HOST = "sh.rt";
     
     private final UrlSaver urlSaver;
-
-    public UrlShortenerImpl(UrlSaver urlSaver) {
-        this.urlSaver = urlSaver;
-    }
 
     @Override
     @SneakyThrows
